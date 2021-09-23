@@ -1,6 +1,11 @@
 package main
-package structs
-import "net/http"
+
+
+import ("net/http"
+"encoding/json"
+
+
+)
 
 func main(){
 	mux:=http.NewServeMux()
@@ -8,7 +13,7 @@ func main(){
 		if r.Method==http.MethodGet{
 			data:= structs.Response{
 				code: http.StatusOK,
-				Body:"pong",
+				Body: "pong",
 			}
 			json.NewEncoder(w).Encode(data)
 		}
